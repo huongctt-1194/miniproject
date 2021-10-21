@@ -73,4 +73,20 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+
+  # Local server
+  # config.action_mailer.default_url_options = { host: host}
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.delivery_method = :smtp
+  # ActionMailer::Base.smtp_settings = {
+  #     :address => 'smtp.sendgrid.net',
+  #     :port => '587',
+  #     :authentication => :plain,
+  #     :user_name => ENV['SENDGRID_USERNAME'],
+  #     :password => ENV['SENDGRID_PASSWORD'],
+  #     :domain=> 'railscasts.com',
+  #     :enable_starttls_auto => true
+  # }
 end
