@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include SessionsHelper
 
-  before_action :logged_in_user, only: [:edit, :update, :index]
+  before_action :logged_in_user, only: [:edit, :update, :index, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   before_action :load_user, only: [:show, :update]
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     redirect_to root_url unless @user.activated
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def create
